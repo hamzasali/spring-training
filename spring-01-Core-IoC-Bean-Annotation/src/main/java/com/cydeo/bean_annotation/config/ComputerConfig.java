@@ -2,6 +2,7 @@ package com.cydeo.bean_annotation.config;
 
 import com.cydeo.bean_annotation.casefactory.Case;
 import com.cydeo.bean_annotation.casefactory.DellCase;
+import com.cydeo.bean_annotation.monitorfactory.AcerMonitor;
 import com.cydeo.bean_annotation.monitorfactory.Monitor;
 import com.cydeo.bean_annotation.monitorfactory.SonyMonitor;
 import com.cydeo.bean_annotation.motherboardfactory.AsusMotherboard;
@@ -15,6 +16,11 @@ public class ComputerConfig {
     @Bean
     public Monitor monitorSony() {
         return new SonyMonitor("25\" Beast", "Sony", 25);
+    }
+
+    @Bean
+    public Monitor monitorAcer() {
+        return new AcerMonitor("29\" Beast", "Acer", 29);
     }
 
     @Bean
