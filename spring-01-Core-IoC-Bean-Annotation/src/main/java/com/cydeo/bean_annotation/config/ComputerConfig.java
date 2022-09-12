@@ -9,16 +9,18 @@ import com.cydeo.bean_annotation.motherboardfactory.AsusMotherboard;
 import com.cydeo.bean_annotation.motherboardfactory.Motherboard;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 @Configuration
 public class ComputerConfig {
 
-    @Bean
+    @Bean("sony")
     public Monitor monitorSony() {
         return new SonyMonitor("25\" Beast", "Sony", 25);
     }
 
     @Bean
+    @Primary
     public Monitor monitorAcer() {
         return new AcerMonitor("29\" Beast", "Acer", 29);
     }

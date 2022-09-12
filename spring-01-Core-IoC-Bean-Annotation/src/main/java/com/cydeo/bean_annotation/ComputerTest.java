@@ -13,12 +13,18 @@ public class ComputerTest {
     public static void main(String[] args) {
 
         ApplicationContext container = new AnnotationConfigApplicationContext(ComputerConfig.class, StringIntConfig.class);
-//        Monitor monitor = container.getBean(Monitor.class);
-        SonyMonitor monitor = container.getBean(SonyMonitor.class);
+        Monitor monitor = container.getBean(SonyMonitor.class);
         Case myCase = container.getBean(Case.class);
         Motherboard motherboard = container.getBean(Motherboard.class);
         PC myPc = new PC(myCase, monitor, motherboard);
 
         myPc.powerUp();
+
+        System.out.println("---------------> Multiple Objects <---------------");
+
+        Monitor theMonitor2 = container.getBean("monitorAcer", Monitor.class); // default bean name
+        Monitor theMonitor3 = container.getBean("sony", Monitor.class); // custom bean name
+        Monitor theMonitor4 = container.getBean(Monitor.class); // @Primary
+
     }
 }
