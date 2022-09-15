@@ -19,7 +19,7 @@ public class CydeoApplication {
 
         CommentService commentService = container.getBean(CommentService.class);
         commentService.publishComment(comment);
+
+        commentService.printConfigData();
     }
-
-
 }
