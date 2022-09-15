@@ -1,6 +1,3 @@
 /.idea/
 *.iml
 */target
-/spring-07-SpringBoot-Demo/.mvn/
-/spring-07-SpringBoot-Demo/mvnw.cmd
-/spring-07-SpringBoot-Demo/mvnw
