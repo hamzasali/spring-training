@@ -10,4 +10,14 @@ public class HomeController {
     public String home() {
         return "home.html";
     }
+
+    @RequestMapping //no end point mean default
+    public String home2() {
+        return "home.html";
+    }
+
+    @RequestMapping({"/apple", "/orange"}) //more than one end point mean for same page
+    public String home3() {
+        return "home.html";
+    }
 }
