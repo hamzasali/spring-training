@@ -18,9 +18,9 @@ public class StudentController {
     }
 
     @RequestMapping("/welcome")
-    public String drop(@RequestParam String name) {
+    public String drop() {
 
-        System.out.println(name);
+
         return "student/welcome";
     }
 }
