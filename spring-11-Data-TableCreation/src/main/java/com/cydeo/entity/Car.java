@@ -16,11 +16,11 @@ public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+    private String make;
     private String model;
 
-    public Car(String name, String model) {
-        this.name = name;
+    public Car(String make, String model) {
+        this.make = make;
         this.model = model;
     }
 }
