@@ -14,6 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 public class Movie extends BaseEntity {
+
     private String name;
     @Column(columnDefinition = "DATE")
     private LocalDate releaseDate;
@@ -26,8 +27,9 @@ public class Movie extends BaseEntity {
     private MovieState state;
     private BigDecimal price;
     @ManyToMany
-    @JoinTable(name = "movie_genre-rel",
+    @JoinTable(name = "movie_genre_rel",
             joinColumns = @JoinColumn(name = "movie_id"),
-            inverseJoinColumns = @JoinColumn(name = "movie_id"))
-    private List<Genre> genre;
+            inverseJoinColumns = @JoinColumn(name = "genre_id"))
+    private List<Genre> genreList;
+
 }
