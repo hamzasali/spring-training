@@ -6,6 +6,8 @@ import com.cydeo.repository.RegionRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
+
 @Component
 public class QueryDemo implements CommandLineRunner {
 
@@ -37,7 +39,16 @@ public class QueryDemo implements CommandLineRunner {
         System.out.println("findDistinctTop3ByDivisionContaining:" + departmentRepository.findDistinctTop3ByDivisionContaining("Hea"));
 
         System.out.println("-------------------DEPARTMENTS-------------------");
-        System.out.println("findByEmail:" + employeeRepository.findByEmail(""));
+        System.out.println("findByEmail:" + employeeRepository.findByEmail("fmorffew4@a8.net"));
+        System.out.println("findByFirstNameAndLastNameOrEmail:" + employeeRepository.findByFirstNameAndLastNameOrEmail("Jodi","Hook",""));
+        System.out.println("findByFirstNameIsNot:" + employeeRepository.findByFirstNameIsNot("Sydney"));
+        System.out.println("findByLastNameStartingWith:" + employeeRepository.findByLastNameStartingWith("T"));
+        System.out.println("findBySalaryGreaterThan:" + employeeRepository.findBySalaryGreaterThan(10000));
+        System.out.println("findBySalaryLessThan:" + employeeRepository.findBySalaryLessThan(10000));
+        System.out.println("findByHireDateBetween:" + employeeRepository.findByHireDateBetween(LocalDate.of(2002,2,12),LocalDate.of(2005,2,12)));
+        System.out.println("findBySalaryGreaterThanEqualOrderBySalaryDesc:" + employeeRepository.findBySalaryGreaterThanEqualOrderBySalaryDesc(10000));
+        System.out.println("findDistinctTop3BySalaryLessThan:" + employeeRepository.findDistinctTop3BySalaryLessThan(10000));
+        System.out.println("findByEmailIsNull:" + employeeRepository.findByEmailIsNull());
 
     }
 }
