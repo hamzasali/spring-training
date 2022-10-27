@@ -20,7 +20,7 @@ public class Employee extends BaseEntity{
     private LocalDate hireDate;
     @Enumerated(EnumType.STRING)
     private Gender gender;
-    private BigDecimal salary;
+    private Integer salary;
 
     @ManyToOne
     @JoinColumn(name = "department")
