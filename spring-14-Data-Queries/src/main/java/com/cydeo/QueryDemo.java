@@ -38,7 +38,7 @@ public class QueryDemo implements CommandLineRunner {
         System.out.println("findByDivisionEndingWith:" + departmentRepository.findByDivisionEndingWith("ics"));
         System.out.println("findDistinctTop3ByDivisionContaining:" + departmentRepository.findDistinctTop3ByDivisionContaining("Hea"));
 
-        System.out.println("-------------------DEPARTMENTS-------------------");
+        System.out.println("-------------------EMPLOYEES-------------------");
         System.out.println("findByEmail:" + employeeRepository.findByEmail("fmorffew4@a8.net"));
         System.out.println("findByFirstNameAndLastNameOrEmail:" + employeeRepository.findByFirstNameAndLastNameOrEmail("Jodi","Hook",""));
         System.out.println("findByFirstNameIsNot:" + employeeRepository.findByFirstNameIsNot("Sydney"));
@@ -49,6 +49,9 @@ public class QueryDemo implements CommandLineRunner {
         System.out.println("findBySalaryGreaterThanEqualOrderBySalaryDesc:" + employeeRepository.findBySalaryGreaterThanEqualOrderBySalaryDesc(10000));
         System.out.println("findDistinctTop3BySalaryLessThan:" + employeeRepository.findDistinctTop3BySalaryLessThan(10000));
         System.out.println("findByEmailIsNull:" + employeeRepository.findByEmailIsNull());
+
+        System.out.println(employeeRepository.retrieveEmployeeDetail());
+        System.out.println(employeeRepository.retrieveEmployeeSalary());
 
     }
 }

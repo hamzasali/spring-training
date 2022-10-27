@@ -2,6 +2,7 @@ package com.cydeo.repository;
 
 import com.cydeo.entity.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -28,7 +29,7 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
     List<Employee> findBySalaryLessThan(Integer salary);
 
     //Display all employees that has been hired between "" and ""
-    List<Employee> findByHireDateBetween(LocalDate date1,LocalDate date2);
+    List<Employee> findByHireDateBetween(LocalDate date1, LocalDate date2);
 
     //Display all employee where salary is greater and equal to "" in order
     List<Employee> findBySalaryGreaterThanEqualOrderBySalaryDesc(Integer salary);
@@ -38,5 +39,11 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
     //Display all employee that do not have email
     List<Employee> findByEmailIsNull();
+
+    @Query("SELECT e FROM Employee e where e.email='fmorffew4@a8.net'")
+    Employee retrieveEmployeeDetail();
+
+    @Query("Select e.salary FROM Employee e Where e.email='fmorffew4@a8.net'")
+    Integer retrieveEmployeeSalary();
 
 }
