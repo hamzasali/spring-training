@@ -86,4 +86,8 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
         //Sorting in Desc Order
     List<Employee> retrieveEmployeeSalaryOrderDesc();
 
+    @Query(value = "Select * From employees Where salary = ?1", nativeQuery = true)
+        //Native Query
+    List<Employee> retrieveEmployeeDetailBySalary(int salary);
+
 }
