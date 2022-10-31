@@ -4,6 +4,7 @@ import com.cydeo.entity.Account;
 import com.cydeo.enums.UserRole;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -26,10 +27,9 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
     List<Account> findByAgeBetween(Integer age1, Integer age2);
 
     //Write a derived query to list all accounts where the beginning of the address contains the keyword
-    List<Account> findByAddressContaining(String pattern);
+    List<Account> findByAddressStartingWith(String pattern);
 
     //Write a derived query to sort the list of accounts with age
-
     List<Account> findByOrderByAge();
 
     // ------------------- JPQL QUERIES ------------------- //
@@ -45,21 +45,26 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
 
     //Write a JPQL query to sort all accounts with age
     @Query("Select a From Account a ORDER BY a.age")
-    List<Account> retrieveAccountSortedByAge();
+    List<Account> getSortedAccountsByAge();
 
 
     // ------------------- Native QUERIES ------------------- //
 
     //Write a native query to read all accounts with an age lower than a specific value
-    @Query(value = "select * from accounts where age < ?1", nativeQuery = true)
-    List<Account> retrieveAccountAgeLessThan(Integer age);
+    @Query(value = "select * from account_details where age < ?1", nativeQuery = true)
+    List<Account> retrieveAccountsAgeLessThan(Integer age);
 
 
     //Write a native query to read all accounts that a specific value can be containable in the name, address, country, state city
-
+    @Query(nativeQuery = true, value = "Select * From account_details ad Where name ILIKE concat('%',?1,'%')" +
+            "OR address ILIKE concat('%',?1,'%')" +
+            "OR country ILIKE concat('%',?1,'%')" +
+            "OR ad.state ILIKE concat('%',?1,'%')" +
+            "OR city ILIKE concat('%',?1,'%')")
+    List<Account> retrieveBySearchCriteria(@Param("pattern") String pattern);
 
     //Write a native query to read all accounts with an age higher than a specific value
-    @Query(value = "select * from accounts where age > ?1", nativeQuery = true)
-    List<Account> retrieveAccountAgeGreaterThan(Integer age);
+    @Query(value = "select * from account_details where age > ?1", nativeQuery = true)
+    List<Account> retrieveAccountAgeGreaterThan(@Param("age") Integer age);
 
 }
