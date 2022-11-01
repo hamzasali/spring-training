@@ -34,9 +34,9 @@ public class QueryDemo implements CommandLineRunner {
         System.out.println(accountRepository.retrieveAllAdminAccount());
         System.out.println(cinemaRepository.retrieveDistinctCinemaBySponsored());
         System.out.println(movieRepository.getAllMovieNames());
-//        System.out.println(movieCinemaRepository.countByCinemaId(4L));
-//        System.out.println(movieCinemaRepository.retrieveAllByLocationName("AMC Empire 25"));
-//        System.out.println(ticketRepository.fetchAllTicketsByUserAccount(4L));
+        System.out.println(movieCinemaRepository.countByCinemaId(4L));
+//        System.out.println(movieCinemaRepository.getCinemasWithLocationName("AMC Empire 25"));
+//        System.out.println(ticketRepository.fetchAllTicketByUserAccount(4L));
 //        System.out.println(ticketRepository.fetchAllTicketsWithRangeOfDates(LocalDateTime.now().minusDays(21), LocalDateTime.now()));
 //        System.out.println(ticketRepository.retrieveAllBySearchCriteria("it"));
 //        System.out.println(genreRepository.fetchAll());
