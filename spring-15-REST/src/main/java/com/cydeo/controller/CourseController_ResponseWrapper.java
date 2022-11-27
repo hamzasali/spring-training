@@ -1,13 +1,11 @@
 package com.cydeo.controller;
 
+import com.cydeo.dto.CourseDTO;
 import com.cydeo.dto.ResponseWrapper;
 import com.cydeo.service.CourseService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/courses/api/v3")
@@ -28,5 +26,28 @@ public class CourseController_ResponseWrapper {
     @GetMapping("{id}")
     public ResponseEntity<ResponseWrapper> getCourseById(@PathVariable("id") long courseId) {
         return ResponseEntity.ok(new ResponseWrapper("course:" + courseId + " retrieved", courseService.getCourseById(courseId)));
+    }
+
+    @PostMapping
+    public ResponseEntity<ResponseWrapper> createCourse(@RequestBody CourseDTO course) {
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .header("Operation", "Create")
+                .body(new ResponseWrapper("Course Created", courseService.createCourse(course)));
+    }
+
+    @PutMapping("{id}")
+    public ResponseEntity<ResponseWrapper> updateCourse(@PathVariable("id") long courseId, @RequestBody CourseDTO course) {
+        courseService.updateCourse(courseId, course);
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("Operation", "Updated")
+                .body(new ResponseWrapper("Course:" + courseId + " updated"));
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<ResponseWrapper> deleteCourseById(@PathVariable("id") long courseId) {
+        courseService.deleteCourseById(courseId);
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("Operation", "Deleted")
+                .body(new ResponseWrapper("Course:" + courseId + " deleted"));
     }
 }
