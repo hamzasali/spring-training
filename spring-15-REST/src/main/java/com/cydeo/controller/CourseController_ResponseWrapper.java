@@ -40,14 +40,12 @@ public class CourseController_ResponseWrapper {
         courseService.updateCourse(courseId, course);
         return ResponseEntity.status(HttpStatus.OK)
                 .header("Operation", "Updated")
-                .body(new ResponseWrapper("Course:" + courseId + " updated"));
+                .body(new ResponseWrapper("Course:" + courseId + " updated", courseService.getCourseById(courseId)));
     }
 
     @DeleteMapping("{id}")
     public ResponseEntity<ResponseWrapper> deleteCourseById(@PathVariable("id") long courseId) {
         courseService.deleteCourseById(courseId);
-        return ResponseEntity.status(HttpStatus.OK)
-                .header("Operation", "Deleted")
-                .body(new ResponseWrapper("Course:" + courseId + " deleted"));
+        return ResponseEntity.ok(new ResponseWrapper("Course:" + courseId + " deleted"));
     }
 }
