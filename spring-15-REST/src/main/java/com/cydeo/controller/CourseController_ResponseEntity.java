@@ -47,12 +47,16 @@ public class CourseController_ResponseEntity {
     }
 
     @PutMapping("{id}")
-    public void updateCourse(@PathVariable("id") long courseId, @RequestBody CourseDTO course) {
+    public ResponseEntity<CourseDTO> updateCourse(@PathVariable("id") long courseId, @RequestBody CourseDTO course) {
         courseService.updateCourse(courseId, course);
+        return ResponseEntity.noContent()
+                .header("Operation", "Updated").build();
     }
 
     @DeleteMapping("{id}")
-    public void deleteCourseById(@PathVariable("id") long courseId) {
+    public ResponseEntity<CourseDTO> deleteCourseById(@PathVariable("id") long courseId) {
         courseService.deleteCourseById(courseId);
+        return ResponseEntity.noContent()
+                .header("Operation", "Deleted").build();
     }
 }
