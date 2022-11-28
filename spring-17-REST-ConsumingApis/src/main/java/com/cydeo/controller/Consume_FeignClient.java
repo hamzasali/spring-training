@@ -23,7 +23,7 @@ public class Consume_FeignClient {
 
         return ResponseEntity.ok(new ResponseWrapper("UserList Retrieved", userClient.getUsers()));
     }
-
+@GetMapping("/api/v1/employee")
     public ResponseEntity<ResponseWrapper> getEmployee(){
         return ResponseEntity.ok(new ResponseWrapper("Employee retrieved", employeeClient.getEmployee("6298ebfecd0551211fce37a6")));
     }
