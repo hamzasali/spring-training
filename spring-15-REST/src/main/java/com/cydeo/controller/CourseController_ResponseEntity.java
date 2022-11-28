@@ -47,7 +47,7 @@ public class CourseController_ResponseEntity {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<CourseDTO> updateCourse(@PathVariable("id") long courseId, @RequestBody CourseDTO course) {
+    public ResponseEntity<Void> updateCourse(@PathVariable("id") long courseId, @RequestBody CourseDTO course) {
         courseService.updateCourse(courseId, course);
         return ResponseEntity.noContent()
                 .header("Operation", "Updated").build();
