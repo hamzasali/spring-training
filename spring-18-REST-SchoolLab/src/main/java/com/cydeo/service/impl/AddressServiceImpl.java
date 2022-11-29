@@ -58,7 +58,10 @@ public class AddressServiceImpl implements AddressService {
 
         addressRepository.save(addressToSave);
 
-        return mapperUtil.convert(addressToSave, new AddressDTO());
+        AddressDTO updatedAddress = mapperUtil.convert(addressToSave, new AddressDTO());
+        updatedAddress.setCurrentTemperature(getCurrentWeather(updatedAddress.getCity()).getCurrent().getTemperature());
+
+        return updatedAddress;
 
     }
 
