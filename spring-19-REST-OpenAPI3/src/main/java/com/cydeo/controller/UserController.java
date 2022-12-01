@@ -2,6 +2,7 @@ package com.cydeo.controller;
 
 import com.cydeo.dto.UserDTO;
 import com.cydeo.service.UserService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/users")
+@Tag(name = "")
 public class UserController {
 
     private final UserService userService;
