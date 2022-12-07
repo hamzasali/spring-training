@@ -24,10 +24,10 @@ public class Spring19RestOpenApi3Application {
 
     @Bean
     public OpenAPI customOpenApi() {
-return new OpenAPI().info(new Info().title("Cydeo Application OpenApi")
-        .version("v1")
-        .description("Cydeo Application API Documentation"))
-        .servers(List.of(new Server().url("https://dev.cydeo.com").description("Dev Environment")));
+        return new OpenAPI().info(new Info().title("Cydeo Application OpenApi")
+                        .version("v1")
+                        .description("Cydeo Application API Documentation"))
+                .servers(List.of(new Server().url("https://dev.cydeo.com").description("Dev Environment")));
     }
 
 }
