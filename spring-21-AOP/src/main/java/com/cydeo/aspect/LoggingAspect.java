@@ -36,4 +36,20 @@ public class LoggingAspect {
 //        logger.info("Before -> Method: {}, Arguments: {},Target: {}",
 //                joinPoint.getSignature(), joinPoint.getArgs(), joinPoint.getTarget());
 //    }
+
+//    @Pointcut("within(com.cydeo.controller..*)")
+//    public void anyControllerOperation() {
+//    }
+//
+//    @Pointcut("within(org.springframework.stereotype.Service)")
+//    public void anyServiceOperation() {
+//    }
+//
+//    @Before("anyControllerOperation()||anyServiceOperation()")
+//    public void BeforeControllerOrServiceOperation(JoinPoint joinPoint) {
+//        logger.info("Before -> Method: {}, Arguments: {},Target: {}",
+//                joinPoint.getSignature(), joinPoint.getArgs(), joinPoint.getTarget());
+//    }
+
+
 }
