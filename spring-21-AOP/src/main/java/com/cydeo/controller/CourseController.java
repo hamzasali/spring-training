@@ -19,8 +19,9 @@ public class CourseController {
 
     @GetMapping
     public List<CourseDTO> getAllCourses() {
-        List<CourseDTO> list = courseService.getCourses();
-        return list;
+        throw new RuntimeException("My Exception");
+//        List<CourseDTO> list = courseService.getCourses();
+//        return list;
     }
 
     @LoggingAnnotation
