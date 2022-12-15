@@ -25,6 +25,7 @@ class CalculatorTest {
     }
 
     @Test
+//    @DisplayName("MyMethod")
     void add() {
         System.out.println("Add Method");
         int actual = Calculator.add(2, 3);
