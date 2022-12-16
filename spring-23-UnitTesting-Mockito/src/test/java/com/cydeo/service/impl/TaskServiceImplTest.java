@@ -14,7 +14,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Optional;
 
-import static org.mockito.BDDMockito.then;
+import static org.mockito.BDDMockito.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -29,7 +29,7 @@ class TaskServiceImplTest {
     TaskServiceImpl taskService;
 
     @ParameterizedTest
-    @ValueSource(longs = {1L, 2L, 3L})
+    @ValueSource(longs = {1L,2L,3L})
     void findById_Test(long id) {
 
         Task task = new Task();
@@ -43,7 +43,7 @@ class TaskServiceImplTest {
     }
 
     @Test
-    void findById_BDD_Test() {
+    void findById_BDD_Test(){
 
         Task task = new Task();
         when(taskRepository.findById(anyLong())).thenReturn(Optional.of(task));
@@ -54,6 +54,8 @@ class TaskServiceImplTest {
         then(taskMapper).should(atLeastOnce()).convertToDto(task);
 
     }
+
+
 
 
 }
