@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.cydeo</groupId>
-    <artifactId>Spring-24-Docker</artifactId>
+    <artifactId>spring-25-Docker</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Spring-24-Docker</name>
     <description>Spring-24-Docker</description>
